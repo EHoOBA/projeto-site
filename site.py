@@ -17,7 +17,15 @@ def index():
 def adicionar():
     return render_template('adicionar.html')
 
-@app.route('/save', methods=['POST'])  # <form action="/save" method="POST">
+@app.route('/deletar', methods=['POST'])
+def deletar():
+    delete = request.form['delete']
+    delete = int(delete)
+    if delete <= len(funcionarios) and delete > 0 and delete != None: 
+        del funcionarios[delete-1]
+        return redirect('https://5000-lime-booby-92j35ywk.ws-us18.gitpod.io')
+
+@app.route('/save', methods=['POST'])
 def save():
     nome = request.form['nome']
     salario = request.form['salario']

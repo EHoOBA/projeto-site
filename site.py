@@ -20,10 +20,13 @@ def adicionar():
 @app.route('/deletar', methods=['POST'])
 def deletar():
     delete = request.form['delete']
-    delete = int(delete)
-    if delete <= len(funcionarios) and delete > 0 and delete != None: 
-        del funcionarios[delete-1]
-        return redirect('https://5000-lime-booby-92j35ywk.ws-us18.gitpod.io')
+    if delete > '':
+        delete = int(delete)
+        if delete <= len(funcionarios) and delete > 0 and delete != None: 
+            del funcionarios[delete-1]
+            return redirect('https://5000-purple-prawn-2mkzutd3.ws-us18.gitpod.io/')
+
+    return render_template('erro.html')
 
 @app.route('/save', methods=['POST'])
 def save():

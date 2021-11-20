@@ -41,13 +41,18 @@
 
         </table>
 
-        <form action='/deletar' method='POST'>
-            <label>Qual funcionário deseja excluir</label>
-            <input type='number' placeholder='Id do funcionário' name='delete'></input>
-            <button class='btn btn-danger'>Deletar</button>
+        <form action='/pesquisar' method='POST'>
+            <input type='text' placeholder='Nome do funcionário' name='pesquisa'></input>
+            <button class='btn btn-outline-info btn-sm'>BUSCAR</button>
         </form>
+    
+        <a href='adicionar' class='btn btn-outline-success btn-sm'>ADICIONAR</a>
 
-        <a href='adicionar'>ADICIONAR</a>
+        <form action='/deletar' method='POST'>
+            <label>Digite o id do funcionário para deletar:</label>
+            <input type='number' placeholder='Id do funcionário' name='delete'></input>
+            <button class='btn btn-outline-danger btn-sm'>DELETAR</button>
+        </form>
     </div>
 
 

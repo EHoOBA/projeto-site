@@ -33,9 +33,11 @@ def save():
     nome = request.form['nome']
     salario = request.form['salario']
     funcionario = {'nome': nome, 'salario': 'R$ ' + salario}
-    funcionarios.append(funcionario)
+    if nome > '' and salario > '':
+        funcionarios.append(funcionario)
+        return redirect('https://5000-plum-shrimp-hu15qhwj.ws-us17.gitpod.io/')
 
-    return redirect('https://5000-plum-shrimp-hu15qhwj.ws-us17.gitpod.io/')
+    return render_template('erro.html')
 
 @app.route('/pesquisar', methods=['POST'])
 def pesquisar():

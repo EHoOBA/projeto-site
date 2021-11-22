@@ -24,7 +24,7 @@ def deletar():
         delete = int(delete)
         if delete <= len(funcionarios) and delete > 0 and delete != None: 
             del funcionarios[delete-1]
-            return redirect('https://5000-lavender-llama-oqrf4h1b.ws-us18.gitpod.io/')
+            return redirect('https://5000-plum-shrimp-hu15qhwj.ws-us17.gitpod.io/')
 
     return render_template('erro.html')
 
@@ -35,7 +35,7 @@ def save():
     funcionario = {'nome': nome, 'salario': 'R$ ' + salario}
     funcionarios.append(funcionario)
 
-    return redirect('https://5000-lavender-llama-oqrf4h1b.ws-us18.gitpod.io/')
+    return redirect('https://5000-plum-shrimp-hu15qhwj.ws-us17.gitpod.io/')
 
 @app.route('/pesquisar', methods=['POST'])
 def pesquisar():

@@ -13,32 +13,6 @@ funcionarios = [
 def index():
     return render_template('index.html', lista=funcionarios)
 
-@app.route('/adicionar')
-def adicionar():
-    return render_template('adicionar.html')
-
-@app.route('/deletar', methods=['POST'])
-def deletar():
-    delete = request.form['delete']
-    if delete > '':
-        delete = int(delete)
-        if delete <= len(funcionarios) and delete > 0 and delete != None: 
-            del funcionarios[delete-1]
-            return redirect('https://5000-jade-grouse-08xge6ky.ws-us17.gitpod.io/')
-
-    return render_template('erro.html')
-
-@app.route('/save', methods=['POST'])
-def save():
-    nome = request.form['nome']
-    salario = request.form['salario']
-    funcionario = {'nome': nome, 'salario': 'R$ ' + salario}
-    if nome > '' and salario > '':
-        funcionarios.append(funcionario)
-        return redirect('https://5000-jade-grouse-08xge6ky.ws-us17.gitpod.io/')
-
-    return render_template('erro.html')
-
 @app.route('/pesquisar', methods=['POST'])
 def pesquisar():
     pesquisa = request.form['pesquisa']
@@ -48,6 +22,32 @@ def pesquisar():
             if pesquisa.upper() in funcionario['nome'].upper():
                 lista_pesquisa_funcionarios.append(funcionario)
         return render_template('pesquisa.html', lista_pesquisa_funcionarios=lista_pesquisa_funcionarios)      
+
+    return render_template('erro.html')
+
+@app.route('/deletar', methods=['POST'])
+def deletar():
+    delete = request.form['delete']
+    if delete > '':
+        delete = int(delete)
+        if delete <= len(funcionarios) and delete > 0 and delete != None: 
+            del funcionarios[delete-1]
+            return redirect('https://5000-emerald-cougar-e8goxv34.ws-us17.gitpod.io/')
+
+    return render_template('erro.html')
+
+@app.route('/adicionar')
+def adicionar():
+    return render_template('adicionar.html')
+
+@app.route('/save', methods=['POST'])
+def save():
+    nome = request.form['nome']
+    salario = request.form['salario']
+    funcionario = {'nome': nome, 'salario': 'R$ ' + salario}
+    if nome > '' and salario > '':
+        funcionarios.append(funcionario)
+        return redirect('https://5000-emerald-cougar-e8goxv34.ws-us17.gitpod.io/')
 
     return render_template('erro.html')
 

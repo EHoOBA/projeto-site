@@ -32,7 +32,7 @@ def deletar():
         delete = int(delete)
         if delete <= len(funcionarios) and delete > 0 and delete != None: 
             del funcionarios[delete-1]
-            return redirect('https://5000-emerald-cougar-e8goxv34.ws-us17.gitpod.io/')
+            return redirect('https://5000-tomato-lemur-az73km7a.ws-us17.gitpod.io/')
 
     return render_template('erro.html')
 
@@ -47,7 +47,7 @@ def save():
     funcionario = {'nome': nome, 'salario': 'R$ ' + salario}
     if nome > '' and salario > '':
         funcionarios.append(funcionario)
-        return redirect('https://5000-emerald-cougar-e8goxv34.ws-us17.gitpod.io/')
+        return redirect('https://5000-tomato-lemur-az73km7a.ws-us17.gitpod.io/')
 
     return render_template('erro.html')
 

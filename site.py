@@ -3,10 +3,10 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 funcionarios = [
-    {'nome': 'Matheus o OBA','salario': 'R$ 5000'},
-    {'nome': 'Moises o CORREA','salario': 'R$ 22000'},
-    {'nome': 'Jonathan o GARCIA','salario': 'R$ 12000'},
-    {'nome': 'Lucas o RODRIGO','salario': 'R$ 569'},
+    {'nome': 'Matheus Oba','salario': 'R$ 5500'},
+    {'nome': 'Moises Corrêa','salario': 'R$ 22000'},
+    {'nome': 'Josué de Almeida','salario': 'R$ 11000'},
+    {'nome': 'João Cleber Filho','salario': 'R$ 569'},
 ]
 
 @app.route('/')
@@ -24,7 +24,7 @@ def deletar():
         delete = int(delete)
         if delete <= len(funcionarios) and delete > 0 and delete != None: 
             del funcionarios[delete-1]
-            return redirect('https://5000-plum-shrimp-hu15qhwj.ws-us17.gitpod.io/')
+            return redirect('https://5000-jade-grouse-08xge6ky.ws-us17.gitpod.io/')
 
     return render_template('erro.html')
 
@@ -35,7 +35,7 @@ def save():
     funcionario = {'nome': nome, 'salario': 'R$ ' + salario}
     if nome > '' and salario > '':
         funcionarios.append(funcionario)
-        return redirect('https://5000-plum-shrimp-hu15qhwj.ws-us17.gitpod.io/')
+        return redirect('https://5000-jade-grouse-08xge6ky.ws-us17.gitpod.io/')
 
     return render_template('erro.html')
 
